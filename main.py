@@ -4,6 +4,7 @@ from openpyxl.utils import get_column_letter
 from openpyxl.utils.dataframe import dataframe_to_rows
 import copy
 import xlrd
+import sys
 import pandas as pd
 from pprint import pprint
 
@@ -163,4 +164,4 @@ def save_to_file(df, file_name):
 
 if __name__ == '__main__':
     print('---开始---')
-    deal_file("《20220607.xlsx")
+    deal_file(sys.argv[1])
