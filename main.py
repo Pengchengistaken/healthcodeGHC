@@ -34,17 +34,17 @@ def deal_file(file_name):
         "序号",
         "姓名",
         "备注",
+        "核酸检测",
+        "疫苗接种",
         "粤康码颜色",
         "原因",
         "详细说明",
         "判定时间",
         "判定城市",
-        "解除指引",
-        "核酸检测",
-        "疫苗接种"
+        "解除指引"
     ])
     info_list = read_excel_info(file_name)
-    pprint(info_list)
+    # pprint(info_list)
 
     # filter students names
     for health_info in info_list:
