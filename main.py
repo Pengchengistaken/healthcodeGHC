@@ -60,7 +60,7 @@ def deal_file(file_name):
         dismiss_guide = health_info.get("解除指引")
         details = health_info.get("详细说明")
 
-        if name == comment:
+        if name in comment:
             info_dict["序号"] = number
             info_dict["姓名"] = name
             info_dict["备注"] = comment
