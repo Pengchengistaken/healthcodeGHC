@@ -4,7 +4,7 @@
 from bottle import route, run, request, static_file
 import os
 
-xlsx_path = 'E:\\workspace\\GHC'  # 定义上传文件的保存路径
+xlsx_path = 'C:\\Users\\lipc\\healthcodeGHC'  # 定义上传文件的保存路径
 
 # 此处可扩充为完整HTML
 uploadPage = '''
@@ -40,7 +40,7 @@ def do_upload():
     upload_file = request.files.get('data')  # 获取上传的文件
     upload_file.save(xlsx_path, overwrite=True)  # overwrite参数是指覆盖同名文件
     if file_filter(upload_file.filename):
-        if os.system('python3 main.py %s' % upload_file.filename) == 0:
+        if os.system('python main.py %s' % upload_file.filename) == 0:
             output_file = '学生_' + upload_file.filename
             return u"<h1>过滤成功，请点击<a href='/download/" + output_file + "'>下载文件</a></h1>"
         else:
@@ -60,4 +60,4 @@ def file_filter(f):
     return False
 
 
-run(host='0.0.0.0', port=8899, debug=True)
+run(host='0.0.0.0', port=8899, debug=False, server='cheroot')
