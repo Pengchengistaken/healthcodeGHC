@@ -5,6 +5,7 @@ from openpyxl.utils.dataframe import dataframe_to_rows
 import copy
 import xlrd
 import sys
+import time
 import pandas as pd
 from pprint import pprint
 
@@ -163,5 +164,8 @@ def save_to_file(df, file_name):
 
 
 if __name__ == '__main__':
-    print('---开始---')
+    start_time = time.time()
     deal_file(sys.argv[1])
+    end_time = time.time()
+    print("上次执行时间：", time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time())))
+    print("上次运行时间：", end_time - start_time)
