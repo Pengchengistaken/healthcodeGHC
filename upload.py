@@ -3,8 +3,24 @@
 # coding=utf-8
 from bottle import route, run, request, static_file
 import os
+import getpass
+import sys
 
-xlsx_path = 'C:\\Users\\lipc\\healthcodeGHC'  # 定义上传文件的保存路径
+operating_system = sys.platform
+user = getpass.getuser()
+print("Current system is ", operating_system)
+print("Current user is ", user)
+xlsx_path = r"/Users/" + user + "/healthcodeGHC"
+if operating_system == "darwin":
+    xlsx_path = r"/Users/" + user + "/healthcodeGHC"
+elif operating_system == "linux":
+    dl_path = r"/home/" + user + "/healthcodeGHC"
+elif operating_system == "win32":
+    dl_path = "C:\\Users\\" + user + "\\healthcodeGHC"
+elif operating_system == "cygwin":
+    dl_path = "C:\\Users\\" + user + "\\healthcodeGHC"
+else:
+    print("Unknown system.")
 
 # 此处可扩充为完整HTML
 uploadPage = '''
