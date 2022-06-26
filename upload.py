@@ -58,7 +58,7 @@ def do_upload():
     if file_filter(upload_file.filename):
         if os.system('python main.py %s' % upload_file.filename) == 0:
             output_file = '学生_' + upload_file.filename
-            return u"<h1>过滤成功，请点击<a href='/download/" + output_file + "'>下载文件</a></h1>"
+            return u"<h1>过滤成功，请点击<a href='/download/" + output_file + "'>下载文件</a>, 或者<a href='/upload'>返回首页</a></h1>"
         else:
             return u"<h1>出错了！请检查上传的文件或者联系管理员！</h1>"
     else:
